@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "eslint-config-nullabletypo",
+    "eslint-config-nullabletypo/+typescript"
+  ]
+}
