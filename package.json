@@ -1,7 +1,7 @@
 {
   "name": "dress",
-  "description": "",
-  "version": "0.0.1",
+  "description": "css-in-js",
+  "version": "0.0.2",
   "author": "nullabletypo",
   "files": [
     "dist",

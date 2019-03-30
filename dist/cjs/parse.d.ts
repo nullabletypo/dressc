@@ -1,2 +1,2 @@
-import { HashMap } from './types';
-export declare const parse: (tree: HashMap<any>, parent?: any) => string[];
+import { HashMap } from './utils';
+export default function parse(tree: HashMap, parent?: string): string;
