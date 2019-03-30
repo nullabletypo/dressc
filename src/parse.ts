@@ -1,24 +1,23 @@
-import { HashMap } from './types'
-import { memo, hyph, wrap } from './utils'
+import { HashMap, hyph, wrap, pair } from './utils'
 
-export const parse = memo((tree: HashMap<any>, parent = '@') => {
+export default function parse(tree: HashMap, parent = '@') {
   const rules: string[] = []
   let rule = ''
-  for (let key in tree) {
-    const val = tree[key]
-    key = hyph(key)
-    if (val === null) {
+
+  for (let k in tree) {
+    const v = tree[k]
+    k = hyph(k)
+    if (v == null) {
       /* noop */
-    } else if (typeof val === 'object') {
-      const child = parse(val, key).join('')
-      rules.push(wrap(child, key))
+    } else if (typeof v === 'object') {
+      rules.push(wrap(k, parse(v, k)))
     } else {
-      rule += `${key}:${val || ''};`
+      rule += pair(k, v)
     }
   }
+
   if (rule.length > 0) {
-    rule = /^@/.test(parent) ? wrap(rule, '&') : rule
-    rules.unshift(rule)
+    rules.unshift(/^@/.test(parent) ? wrap('&', rule) : rule)
   }
-  return rules
-})
+  return rules.join('')
+}

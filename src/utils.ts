@@ -1,29 +1,11 @@
-import { HashMap } from './types'
-
-export const memo = <F extends (...arg: any) => any>(func: F) => {
-  const cache: HashMap<any> = {}
-  return (...args: Parameters<F>): ReturnType<F> => {
-    const key = JSON.stringify(args)
-    return (cache[key] = cache[key] || func.apply(func, args))
-  }
+export interface HashMap<T = any> {
+  [key: string]: T
 }
 
-export const arity = <F extends (...args: any[]) => any>(n: number, f: F) => {
-  return (...args: Parameters<F>): ReturnType<F> => f.apply(f, args.slice(0, n))
-}
+export const identity = <T>(v: T, ..._: any[]) => v
 
-export const uid = ((i: number) => (...symbol: string[]) => {
-  return ['_', (i++).toString(36), ...symbol].join('_')
-})(0)
+export const hyph = (s: string) => s.replace(/[A-Z]/g, '-$&').toLowerCase()
 
-export const hyph = (str: string) => {
-  return str.replace(/[A-Z]/g, '-$&').toLowerCase()
-}
+export const pair = (k: string, v: any) => `${k}:${v};`
 
-export const wrap = (body: string, ...path: string[]) => {
-  return path.reduceRight((acc, key) => `${key}{${acc}}`, body)
-}
-
-export const assign = <T extends object>(...obj: T[]) => {
-  return Object.assign({}, ...obj)
-}
+export const wrap = (k: string, v: string) => `${k}{${v}}`
