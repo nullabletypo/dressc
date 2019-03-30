@@ -55,7 +55,7 @@
     "lint": "tslint src/**/*.ts",
     "release:github": "git add . && git commit -am $npm_package_version --allow-empty && git tag $npm_package_version && git push && git push --tags",
     "release": "run-s clean compile test release:github",
-    "size": "webpack --mode=production --config=webpack.size.config.js && node -e \"process.stdout.write('gzip size: ')\" && gzip-size pref/bundle-size.js && rimraf pref",
+    "size": "parcel build src/index.ts --no-cache --out-dir size && node -e \"process.stdout.write('gzip size: ')\" && gzip-size size/index.js && rimraf size",
     "test": "NODE_ENV=test jest"
   }
 }
