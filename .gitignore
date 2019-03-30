@@ -61,5 +61,7 @@ typings/
 .env
 
 ### Project ###
+example/dist
+example/.cache
 test/compiled
 playground.*

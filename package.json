@@ -34,6 +34,7 @@
     "gzip-size-cli": "^3.0.0",
     "jest": "^24.5.0",
     "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.3",
     "prettier": "^1.16.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -45,7 +46,7 @@
   },
   "keywords": [],
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --mode=development --config=\"examples/webpack.config.js\"",
+    "example": "parcel example/index.html --port 3000 --out-dir example/dist --cache-dir example/.cache --open",
     "compile": "npm-run-all compile:**",
     "compile:cjs": "tsc --module commonjs --outDir dist/cjs",
     "compile:esm": "tsc --module es2015 --outDir dist/esm",
