@@ -2,30 +2,41 @@ import * as React from 'react'
 import { render } from 'react-dom'
 import dress from '../src/index'
 
-const { css, extract } = dress()
+const { css, extract, keyframes } = dress()
 
-const text = css({
-  color: 'red',
-  textAlign: 'center',
-})
+const text = css`
+  color: red;
+  text-align: center;
+`
 
-const container = css({
-  background: 'pink',
-  width: '300px',
-  height: '100px',
-  '&:hover': {
-    background: 'green',
-  },
-  [`&:hover > .${text}`]: {
-    fontWeight: 'bold',
-  },
-  '@media (min-width: 500px)': {
-    background: 'yellow',
-    '&:hover': {
-      border: '2px solid tomato',
-    },
-  },
-})
+const opatity = keyframes`
+  ${0}% {
+    opacity: 0;
+  }
+  ${100}% {
+    opacity: 1;
+  }
+`
+
+const container = css`
+  animation: ${opatity} 1000ms;
+  background: pink;
+  width: 300px;
+  height: 100px;
+  &:hover {
+    background: green;
+  }
+  &:hover > .${text} {
+    font-weight: bold;
+  }
+  /* comment */
+  @media screen and (min-width: 500px) {
+    background: yellow;
+    &:hover {
+      border: 2px solid tomato;
+    }
+  }
+`
 
 export const App = () => (
   <React.Fragment>

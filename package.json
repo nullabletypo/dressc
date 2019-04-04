@@ -22,8 +22,7 @@
   },
   "homepage": "https://github.com/nullabletypo/dress",
   "dependencies": {
-    "@emotion/hash": "^0.7.1",
-    "csstype": "^2.6.3"
+    "@emotion/hash": "^0.7.1"
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
