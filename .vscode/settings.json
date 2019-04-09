@@ -4,7 +4,8 @@
   "files.exclude": {
     "**/dist/**": false,
     "**/*bundle.*/**": true,
-    "**/node_modules/**": true
+    "**/node_modules/**": true,
+    ".rts2*": true
   },
   // prettier-vscode
   // https://github.com/prettier/prettier-vscode

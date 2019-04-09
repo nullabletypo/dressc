@@ -8,10 +8,10 @@
     "README.md",
     "LICENCE"
   ],
-  "main": "dist/cjs/index.js",
-  "jsnext:main": "dist/esm/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/cjs/index.d.ts",
+  "main": "dist/index.js",
+  "jsnext:main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "eslint-config-nullabletypo": "https://github.com/nullabletypo/eslint-config-nullabletypo",
     "gzip-size-cli": "^3.0.0",
     "jest": "^24.7.1",
+    "microbundle": "^0.11.0",
     "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.3",
     "prettier": "^1.16.4",
@@ -47,15 +48,14 @@
   "keywords": [],
   "scripts": {
     "example": "parcel example/index.html --port 3000 --out-dir example/dist --cache-dir example/.cache --open",
-    "compile": "npm-run-all compile:**",
-    "compile:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "compile:esm": "tsc --module es2015 --outDir dist/esm",
+    "bundle": "run-p bundle:*",
+    "bundle:core": "microbundle --raw -f cjs,es --no-compress",
+    "bundle:min": "microbundle --raw -f cjs -o dist/index.min.js",
     "clean": "run-p clean:**",
     "clean:dist": "rimraf dist",
     "lint": "eslint src/**/*.ts",
     "release:github": "git add . && git commit -am $npm_package_version --allow-empty && git tag $npm_package_version && git push && git push --tags",
     "release": "run-s test clean compile  release:github",
-    "size": "parcel build src/index.ts --no-cache --out-dir size && node -e \"process.stdout.write('gzip size: ')\" && gzip-size size/index.js && rimraf size",
     "test": "NODE_ENV=test jest"
   }
 }
