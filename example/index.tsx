@@ -9,7 +9,7 @@ const text = css`
   text-align: center;
 `
 
-const opatity = keyframes`
+const effect = keyframes`
   ${0}% {
     opacity: 0;
   }
@@ -19,7 +19,7 @@ const opatity = keyframes`
 `
 
 const container = css`
-  animation: ${opatity} 1000ms;
+  animation: ${effect} 1000ms;
   background: pink;
   width: 300px;
   height: 100px;
