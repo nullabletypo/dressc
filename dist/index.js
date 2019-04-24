@@ -71,7 +71,7 @@ var index = (function (option) {
   if ( option === void 0 ) option = {};
 
   var compile$$1 = option.compile || compile;
-  var prefix = option.prefix || 'dress-';
+  var prefix = option.prefix || 'dress';
   var cache = {}; // {template: id}
 
   var cssText = '';
@@ -84,7 +84,7 @@ var index = (function (option) {
     var id = cache[template];
 
     if (id === undefined) {
-      id = cache[template] = prefix + hash(template);
+      id = cache[template] = prefix + '-' + hash(template);
       cssText += compile$$1('.' + id, template);
     }
 
@@ -99,7 +99,7 @@ var index = (function (option) {
     var id = cache[template];
 
     if (id === undefined) {
-      id = cache[template] = prefix + hash(template);
+      id = cache[template] = prefix + '-' + hash(template);
       cssText += "@keyframes " + id + "{" + (template.replace(/\s+/g, ' ')) + "}";
     }
 
