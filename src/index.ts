@@ -8,7 +8,7 @@ export interface DressOptions {
 
 export default (option: Partial<DressOptions> = {}) => {
   const compile = option.compile || _compile
-  const prefix = option.prefix || 'dress-'
+  const prefix = option.prefix || 'dress'
   const cache: { [key: string]: string } = {} // {template: id}
   let cssText = ''
 
@@ -16,7 +16,7 @@ export default (option: Partial<DressOptions> = {}) => {
     const template = String.raw(strings, ...values)
     let id = cache[template]
     if (id === undefined) {
-      id = cache[template] = prefix + hash(template)
+      id = cache[template] = prefix + '-' + hash(template)
       cssText += compile('.' + id, template)
     }
     return id
@@ -26,7 +26,7 @@ export default (option: Partial<DressOptions> = {}) => {
     const template = String.raw(string, ...values)
     let id = cache[template]
     if (id === undefined) {
-      id = cache[template] = prefix + hash(template)
+      id = cache[template] = prefix + '-' + hash(template)
       cssText += `@keyframes ${id}{${template.replace(/\s+/g, ' ')}}`
     }
     return id

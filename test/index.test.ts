@@ -1,4 +1,5 @@
 import dress from '../src/index'
+import { compile } from '../src/compile'
 import hash from '@emotion/hash'
 
 const className = (() => {
@@ -15,18 +16,29 @@ const kf = (() => {
   return { template, id, text }
 })()
 
-const { css, keyframes, extract } = dress()
+describe('dress', () => {
+  const { css, keyframes, extract } = dress()
 
-test('css', () => {
+  test('css', () => {
+    const _className = css`${className.template}` // prettier-ignore
+    expect(_className).toBe(className.id)
+  })
+
+  test('keyframes', () => {
+    const _keyframens = keyframes`${kf.template}`
+    expect(_keyframens).toBe(kf.id)
+  })
+
+  test('extract', () => {
+    expect(extract()).toBe(className.text + kf.text)
+  })
+})
+
+test('with options', () => {
+  const mock = jest.fn(compile)
+  const { css } = dress({ prefix: 'x', compile: mock })
   const _className = css`${className.template}` // prettier-ignore
-  expect(_className).toBe(className.id)
-})
-
-test('keyframes', () => {
-  const _keyframens = keyframes`${kf.template}`
-  expect(_keyframens).toBe(kf.id)
-})
-
-test('extract', () => {
-  expect(extract()).toBe(className.text + kf.text)
+  const id = 'x-' + hash(className.template)
+  expect(_className).toBe(id)
+  expect(mock).toBeCalledWith('.' + id, className.template)
 })
