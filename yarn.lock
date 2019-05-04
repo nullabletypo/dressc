@@ -1083,7 +1083,7 @@
   resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-12.0.12.tgz#45dd1d0638e8c8f153e87d296907659296873916"
   integrity sha512-SOhuU4wNBxhhTHxYaiG5NY4HBhDIDnJF60GU+2LqHAdKKer86//e4yg69aENCtQ04n0ovz+tq2YPME5t5yp4pw==
 
-"@typescript-eslint/eslint-plugin@^1.6.0":
+"@typescript-eslint/eslint-plugin@^1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-1.7.0.tgz#570e45dc84fb97852e363f1e00f47e604a0b8bcc"
   integrity sha512-NUSz1aTlIzzTjFFVFyzrbo8oFjHg3K/M9MzYByqbMCxeFdErhLAcGITVfXzSz+Yvp5OOpMu3HkIttB0NyKl54Q==
@@ -1111,6 +1111,15 @@
   dependencies:
     lodash.unescape "4.0.1"
     semver "5.5.0"
+
+"@typoerr/eslint-config@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@typoerr/eslint-config/-/eslint-config-0.0.9.tgz#602fe8c1d323eee1dc423ae0b1d07c4141d0e976"
+  integrity sha512-5nQWlwjyJoiwxmM07SCq/HMYXmqJtD9rnf0Ruzzt8WOY5Moi2qmLWWbw0wqXNaHXADMsq8iGyRaTZenKqr3TeQ==
+  dependencies:
+    "@typescript-eslint/eslint-plugin" "^1.7.0"
+    eslint-config-prettier "^4.2.0"
+    eslint-plugin-prettier "^3.0.1"
 
 abab@^2.0.0:
   version "2.0.0"
@@ -2800,18 +2809,10 @@ escodegen@~1.9.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-"eslint-config-nullabletypo@https://github.com/nullabletypo/eslint-config-nullabletypo":
-  version "0.0.7"
-  resolved "https://github.com/nullabletypo/eslint-config-nullabletypo#a2ee309afe828a91e4e04e32e471f341127bb7be"
-  dependencies:
-    "@typescript-eslint/eslint-plugin" "^1.6.0"
-    eslint-config-prettier "^4.1.0"
-    eslint-plugin-prettier "^3.0.1"
-
-eslint-config-prettier@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-4.1.0.tgz#181364895899fff9fd3605fecb5c4f20e7d5f395"
-  integrity sha512-zILwX9/Ocz4SV2vX7ox85AsrAgXV3f2o2gpIicdMIOra48WYqgUnWNH/cR/iHtmD2Vb3dLSC3LiEJnS05Gkw7w==
+eslint-config-prettier@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-4.2.0.tgz#70b946b629cd0e3e98233fd9ecde4cb9778de96c"
+  integrity sha512-y0uWc/FRfrHhpPZCYflWC8aE0KRJRY04rdZVfl8cL3sEZmOYyaBdhdlQPjKZBnuRMyLVK+JUZr7HaZFClQiH4w==
   dependencies:
     get-stdin "^6.0.0"
 
