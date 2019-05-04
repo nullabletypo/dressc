@@ -1,7 +1,7 @@
 # Install
 
 ```
-yarn add https://github.com/nullabletypo/dress
+yarn add @typoerr/dress
 ```
 
 # Usage
