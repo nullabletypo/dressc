@@ -68,3 +68,4 @@ example/dist
 example/.cache
 test/compiled
 playground.*
+dist
