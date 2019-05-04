@@ -1,27 +1,26 @@
 {
-  "name": "dress",
+  "name": "@typoerr/dress",
   "description": "css-in-js",
   "version": "0.0.7",
-  "author": "nullabletypo",
+  "author": "typoerr",
   "files": [
     "dist",
     "README.md",
     "LICENCE"
   ],
-  "source": "src/index.ts",
-  "main": "dist/index.js",
-  "jsnext:main": "dist/index.mjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "jsnext:main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nullabletypo/dress.git"
+    "url": "https://github.com/typoerr/dress.git"
   },
   "bugs": {
-    "url": "https://github.com/nullabletypo/dress/issues"
+    "url": "https://github.com/typoerr/dress/issues"
   },
-  "homepage": "https://github.com/nullabletypo/dress",
+  "homepage": "https://github.com/typoerr/dress",
   "dependencies": {
     "@emotion/hash": "^0.7.1"
   },
@@ -55,8 +54,8 @@
     "clean": "run-p clean:**",
     "clean:dist": "rimraf dist",
     "lint": "eslint src/**/*.ts",
-    "release:github": "git add . && git commit -am $npm_package_version --allow-empty && git tag $npm_package_version && git push && git push --tags",
-    "release": "run-s test clean bundle release:github",
+    "release": "run-s compile np clean",
+    "np": "np --no-release-draft",
     "test": "NODE_ENV=test jest"
   },
   "jest": {
@@ -67,5 +66,8 @@
         "tsConfig": "test/tsconfig.json"
       }
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
