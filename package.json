@@ -4,6 +4,7 @@
   "version": "0.0.9",
   "author": "typoerr",
   "files": [
+    "src",
     "dist",
     "README.md",
     "LICENCE"
