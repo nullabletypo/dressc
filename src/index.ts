@@ -1,5 +1,5 @@
-import { compile as _compile } from './compile'
 import hash from '@emotion/hash'
+import { compile } from './compile'
 
 export interface DressOptions {
   prefix: string
@@ -7,7 +7,7 @@ export interface DressOptions {
 }
 
 export default (option: Partial<DressOptions> = {}) => {
-  const compile = option.compile || _compile
+  const compiler = option.compile || compile
   const prefix = option.prefix || 'dress'
   const cache: { [key: string]: string } = {} // {template: id}
   let cssText = ''
@@ -17,13 +17,13 @@ export default (option: Partial<DressOptions> = {}) => {
     let id = cache[template]
     if (id === undefined) {
       id = cache[template] = prefix + '-' + hash(template)
-      cssText += compile('.' + id, template)
+      cssText += compiler('.' + id, template)
     }
     return id
   }
 
-  const keyframes = (string: TemplateStringsArray, ...values: any[]) => {
-    const template = String.raw(string, ...values)
+  const keyframes = (strings: TemplateStringsArray, ...values: any[]) => {
+    const template = String.raw(strings, ...values)
     let id = cache[template]
     if (id === undefined) {
       id = cache[template] = prefix + '-' + hash(template)
