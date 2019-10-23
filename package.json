@@ -1,7 +1,7 @@
 {
   "name": "@typoerr/dress",
   "description": "css-in-js",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "typoerr",
   "files": [
     "src",
