@@ -4,5 +4,5 @@
     "types": ["node", "jest"],
     "noUnusedLocals": false
   },
-  "include": ["./**/*.test.ts", "../src/**/*.d.ts"]
+  "include": ["./*.test.ts"]
 }

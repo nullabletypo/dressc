@@ -1,6 +1,6 @@
-import dress from '../src/index'
-import { compile } from '../src/compile'
 import hash from '@emotion/hash'
+import { compile } from '../src/compile'
+import dress from '../src/index'
 
 const className = (() => {
   const template = `color:red;`

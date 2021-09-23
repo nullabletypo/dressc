@@ -16,7 +16,7 @@ export const reduce = (id: string, rows: string[]) => {
   }
 
   for (let i = 0; i < rows.length; i++) {
-    let line = preform(rows[i])
+    let line = preform(rows[i]!)
     // empty line
     if (line === '') {
       continue
@@ -32,7 +32,7 @@ export const reduce = (id: string, rows: string[]) => {
         commit(line)
         // accumulate until close puseudo
         for (i = i + 1; i < rows.length; i++) {
-          acc += line = preform(rows[i])
+          acc += line = preform(rows[i]!)
           if (line.endsWith('}')) {
             break
           }
@@ -51,7 +51,7 @@ export const reduce = (id: string, rows: string[]) => {
       if (!line.endsWith('*/')) {
         // accumulate until close comment
         for (i = i + 1; i < rows.length; i++) {
-          acc += line = preform(rows[i])
+          acc += line = preform(rows[i]!)
           if (line.endsWith('*/')) {
             break
           }
