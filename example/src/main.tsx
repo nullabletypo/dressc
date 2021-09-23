@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { render } from 'react-dom'
-import dress from '../src/index'
+import dress from '../../src'
 
 const { css, extract, keyframes } = dress()
 
